@@ -188,6 +188,12 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#merch .card-img-top {
+  height: 320px;
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
 #merch .card p {
   color: #fff !important;
 }

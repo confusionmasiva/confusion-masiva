@@ -126,8 +126,50 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Remera Confusión Masiva</h5>
           <p class="card-text">Remera oficial de la banda. Talles S a XXL.</p>
-          <p class="fw-bold text-success" style="font-size: 1.2rem;">$900</p>
+          <p class="fw-bold text-success" style="font-size: 1.2rem;">$800</p>
           <a href="https://wa.me/59893642441?text=Buenas%2C%20quiero%20comprar%20una%20remera%20de%20talle" 
+             target="_blank" rel="noopener noreferrer" class="btn btn-success mt-auto">
+             Contactar para comprar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="images/merch-1.png" class="card-img-top zoomable" alt="Remera de manga larga Confusión Masiva" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Remera de manga larga</h5>
+          <p class="card-text">Remera de manga larga oficial de Confusión Masiva.</p>
+          <p class="fw-bold text-success" style="font-size: 1.2rem;">$900</p>
+          <a href="https://wa.me/59893642441?text=Buenas%2C%20quiero%20comprar%20la%20remera%20de%20manga%20larga"
+             target="_blank" rel="noopener noreferrer" class="btn btn-success mt-auto">
+             Contactar para comprar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="images/merch-2.png" class="card-img-top zoomable" alt="Canguro diseño 1 de Confusión Masiva" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Canguro - Diseño 1</h5>
+          <p class="card-text">Canguro oficial de Confusión Masiva. Disponible en varios colores.</p>
+          <p class="fw-bold text-success" style="font-size: 1.2rem;">$1400</p>
+          <a href="https://wa.me/59893642441?text=Buenas%2C%20quiero%20comprar%20el%20canguro%20dise%C3%B1o%201"
+             target="_blank" rel="noopener noreferrer" class="btn btn-success mt-auto">
+             Contactar para comprar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="images/merch-3.png" class="card-img-top zoomable" alt="Canguro diseño 2 de Confusión Masiva" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Canguro - Diseño 2</h5>
+          <p class="card-text">Canguro oficial de Confusión Masiva. Disponible en varios colores.</p>
+          <p class="fw-bold text-success" style="font-size: 1.2rem;">$1400</p>
+          <a href="https://wa.me/59893642441?text=Buenas%2C%20quiero%20comprar%20el%20canguro%20dise%C3%B1o%202"
              target="_blank" rel="noopener noreferrer" class="btn btn-success mt-auto">
              Contactar para comprar
           </a>
@@ -187,13 +229,16 @@
 <script>
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImg");
-  const zoomable = document.querySelector(".zoomable");
+  const zoomables = document.querySelectorAll(".zoomable");
   const closeBtn = document.querySelector(".close");
 
-  zoomable.onclick = function() {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-  }
+  zoomables.forEach(image => {
+    image.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+    };
+  });
 
   closeBtn.onclick = function() {
     modal.style.display = "none";
