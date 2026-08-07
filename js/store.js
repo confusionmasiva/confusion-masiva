@@ -101,7 +101,7 @@
 
     const totales = calcularTotales();
     resumen.innerHTML = `<div><span>Subtotal</span><strong>${dinero(totales.subtotal)}</strong></div>
-      <div><span>Comisión Mercado Pago (8%)</span><strong>${dinero(totales.comision)}</strong></div>
+      <div><span>Comisión de Mercado Pago (8%)</span><strong>${dinero(totales.comision)}</strong></div>
       <div><span>Envío</span><strong>Se coordina posteriormente</strong></div>
       <div class="carrito-total"><span>Total a pagar ahora</span><strong>${dinero(totales.total)}</strong></div>`;
   }
@@ -122,7 +122,7 @@
 
   document.getElementById("checkoutModal").addEventListener("show.bs.modal", () => {
     const totales = calcularTotales();
-    checkoutResumen.innerHTML = `<h3 class="h5 text-start">Resumen</h3>${carrito.map(item => `<p class="mb-1">${item.cantidad} × ${PRODUCTOS[item.producto].nombre} — ${item.talle}, ${item.colorPrenda}, estampa ${item.colorEstampa}</p>`).join("")}<p class="fw-bold mt-3">Total con comisión: ${dinero(totales.total)}</p><p class="small mb-0">El costo de envío se coordina posteriormente.</p>`;
+    checkoutResumen.innerHTML = `<h3 class="h5 text-start">Resumen</h3>${carrito.map(item => `<p class="mb-1">${item.cantidad} × ${PRODUCTOS[item.producto].nombre} — ${item.talle}, ${item.colorPrenda}, estampa ${item.colorEstampa}</p>`).join("")}<p class="fw-bold mt-3">Total con comisión de Mercado Pago (8%): ${dinero(totales.total)}</p><p class="small mb-0">El costo de envío se coordina posteriormente.</p>`;
   });
 
   iniciarCompra.addEventListener("click", () => {

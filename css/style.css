@@ -188,6 +188,16 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#merch .merch-comision-aviso {
+  max-width: 720px;
+  margin: -0.5rem auto 1.5rem;
+  padding: 0.65rem 1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 3px solid #00ff66;
+  border-radius: 6px;
+}
+
 #merch .card-img-top {
   height: 320px;
   object-fit: contain;
