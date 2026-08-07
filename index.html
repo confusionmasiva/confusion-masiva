@@ -8,7 +8,7 @@
 
   <!-- Meta etiquetas Open Graph. Saludos, luqui :* . -->
   <meta property="og:title" content="Confusión Masiva - Crossover Thrash Uruguay" />
-  <meta property="og:description" content="Escuchá nuestra música, mirá videos y conseguí el merchandising oficial." />
+  <meta property="og:description" content="Escuchá nuestra música, mirá fotos y conseguí el merchandising oficial." />
   <meta property="og:image" content="https://confusionmasiva.github.io/confusion-masiva/images/logo-verde.png" />
   <meta property="og:url" content="https://confusionmasiva.github.io/confusion-masiva/" />
   <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@
   <!-- Meta etiquetas para Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Confusión Masiva - Crossover Thrash Uruguay" />
-  <meta name="twitter:description" content="Escuchá nuestra música, mirá videos y conseguí el merchandising oficial." />
+  <meta name="twitter:description" content="Escuchá nuestra música, mirá fotos y conseguí el merchandising oficial." />
   <meta name="twitter:image" content="https://confusionmasiva.github.io/confusion-masiva/images/logo-verde.png" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,17 +54,21 @@
   <p>Nuestro estilo mezcla elementos del hardcore punk y el thrash metal para crear un sonido agresivo y enérgico. Inspirados en bandas como D.R.I., Municipal Waste, Suicidal Tendencies y Power Trip, buscamos un sonido potente y vieja escuela que haga vibrar a nuestro público.</p>
 </section>
 
-<section id="reproductor" class="container py-5 text-center">
+<section id="galeria" class="container py-5 text-center">
   <div class="p-4 rounded-4" style="background-color: rgba(0, 0, 0, 0.6);">
-    <h2 class="text-success fw-bold mb-4">Reproductor de YouTube</h2>
-    <div class="ratio ratio-16x9">
-      <iframe 
-        src="https://www.youtube.com/embed/5LlXicusiTE?rel=0&modestbranding=1" 
-        title="Confusión Masiva - Video Oficial" 
-        allowfullscreen
-        style="border-radius: 10px;">
-</iframe>
+    <h2 class="text-success fw-bold mb-4">Galería de fotos</h2>
+    <div id="galeriaFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-inner" id="galeriaFotosContenido"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#galeriaFotos" data-bs-slide="prev" aria-label="Foto anterior">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#galeriaFotos" data-bs-slide="next" aria-label="Foto siguiente">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
+    <p class="galeria-contador mt-3 mb-0" aria-live="polite">
+      Foto <span id="galeriaFotoActual">1</span> de 98
+    </p>
   </div>
 </section>
 
@@ -200,6 +204,42 @@
       modal.style.display = "none";
     }
   }
+</script>
+
+<script>
+  const fotosGaleria = [{"id":"1KmVOvxnSv4SYq-ICmV6Wo0QuyHbpg77T","title":"Edit_144.jpg"},{"id":"1AUwu9B_lE2-1du2eb9HtPNCoUqTU9-l1","title":"Edit_143.jpg"},{"id":"1-E9-DgrX4u_xNNJvAx-z0qGSX7--ZI0I","title":"Edit_142.jpg"},{"id":"1RtbElejTf-jLO9DU_k1ngiZkzG5dNPpb","title":"Edit_141.jpg"},{"id":"19Fh-R2YHr79xqpfl9RJ6DxduaOUVtw4K","title":"Edit_140.jpg"},{"id":"1sMyby-1AVQxErUMP3gJf3M8TpyYy_sms","title":"Edit_139.jpg"},{"id":"1kt1IUWAMWIsvBrlP8ojCif3_QztbRBCs","title":"Edit_138.jpg"},{"id":"1vDXHoE5lexjQH5PucuWkiy5jM0XO-6H7","title":"Edit_137.jpg"},{"id":"1iqdQKZi4wCLiLPptg9YcfjZ8B2U2m10P","title":"Edit_136.jpg"},{"id":"1_OK0LYYdnuHbJrx98aUBVOKur-n1un6j","title":"Edit_135.jpg"},{"id":"1vjDZi8u00RA7EoxYinX3AblWakkGo9eW","title":"Edit_134.jpg"},{"id":"1feFLcKYvS07FjVwDJjG0XTYUqrUggHFx","title":"Edit_133.jpg"},{"id":"1Z4n025gI_TYhWHCnM31H_jllByFdzTRH","title":"Edit_132.jpg"},{"id":"1SUUJ73rV631avlIZ6TANZg12oLhb2dJ9","title":"Edit_131.jpg"},{"id":"1kRdh49T_lov1WAcc0pQ_pgnWoKWRsdcp","title":"Edit_130.jpg"},{"id":"1g-gJ39zxpNsRpEyf8LWkUDaL84Tuubm7","title":"Edit_129.jpg"},{"id":"1NXSZiGEKGBOFxi9ba7--P_tbTjmiHvfI","title":"Edit_128.jpg"},{"id":"1bQFdt4kjQLohOcq7-kqpn0CTZBL-6JNL","title":"Edit_127.jpg"},{"id":"1wGc-ULMyo4CW6m8UHj3kpXAsnXzGbkMk","title":"Edit_126.jpg"},{"id":"1CVxO3FtPXpfwPzZGYxYnRap2T2xYzWKK","title":"Edit_125.jpg"},{"id":"1odlvArWS5rlSZd437_2pOs-i7eAAcO_z","title":"Edit_124.jpg"},{"id":"1nP97hYnlJLncL-um_O-vS4fEs6sBOccg","title":"Edit_123.jpg"},{"id":"1kxn2X-QbwQfTbjJBnu7E6p57Zq0uNkZ4","title":"Edit_122.jpg"},{"id":"18PjgXIHSAWtoqR8vtUzkoeIqX5D-Sq6f","title":"Edit_121.jpg"},{"id":"1EggQWd1n4wVB8_ECIvUNjoSRowYvPhwt","title":"Edit_120.jpg"},{"id":"1ozndS6w8rYnj6oNmhdEGu9TghunbW6TZ","title":"Edit_119.jpg"},{"id":"1CD7Ot85gaEa2pC-UU5k0z9SDYWBxOeKN","title":"Edit_118.jpg"},{"id":"1I4dQJvie-gdJpYLn9wgFu1XEppcLsn4e","title":"Edit_117.jpg"},{"id":"12t40BojwDsJ-DhQvTxKFPY7EzUV5ycOD","title":"Edit_115.jpg"},{"id":"1lBmas1XXr9bKKtWwK-J5yHP4Wo2sFBT1","title":"Edit_116.jpg"},{"id":"1WPvAGrldqC9xTEPknZ3Wd6rsNzDwgP87","title":"Edit_114.jpg"},{"id":"1R_yOSx-yWYILT7bN0LYM5sE8i1g6s_gy","title":"Edit_113.jpg"},{"id":"11ha5UT1Vdx5qKTQdI53JgHW4-CaLVsTD","title":"Edit_112.jpg"},{"id":"1v0JAZT_IUPmJmcf9PryOcQwMaSjkFfhA","title":"Edit_111.jpg"},{"id":"1kbYhDIWjMc0MrVysu6Q-veqfU7WSYM46","title":"Edit_110.jpg"},{"id":"1B6ehIhHGhayicD755w6Jq2dcRMnAeNg7","title":"Edit_109.jpg"},{"id":"1zSHWUxWM7rlL9fQWdA8TI9wF6eUYMvgC","title":"Edit_108.jpg"},{"id":"1hZqW5MTDRgBA-FYilaI8bHUK2V3i8KEv","title":"Edit_106.jpg"},{"id":"1CFw80d6ORh1jVVZYjNf5EJQMNgLa70y8","title":"Edit_107.jpg"},{"id":"1tug_pEvow_dDJQ4hTxpsBD_MMcA9_fid","title":"Edit_105.jpg"},{"id":"16WJqqgW0F0Ao9b8s1lMAambnjx5xnIQU","title":"Edit_104.jpg"},{"id":"1uQGv68ZHwnlLPCvfzlU7fvaVANGswYEs","title":"Edit_103.jpg"},{"id":"1cDydqNs5Cgomim2Xu9uZCRZZVagZC3CK","title":"Edit_102.jpg"},{"id":"1SML-XAOMM5PIlq7to_eVi_4QlqTX06UO","title":"Edit_101.jpg"},{"id":"1RwcXZoj6khgCbcU1C8WJvr55RZ9eNJOn","title":"Edit_100.jpg"},{"id":"1W1u5zbyh_gAf1tvbe6rK86DJ63r_NJTo","title":"Edit_99.jpg"},{"id":"1s-9GmqjhRLUYF1quwgB2nvN7kuPeE6oe","title":"Edit_98.jpg"},{"id":"1cHi2NhxNVaBeknF52HD-xHJX2jkjkDNY","title":"Edit_96.jpg"},{"id":"1XRNXmxndyNfco56KaO2G-HNXETLHtjob","title":"Edit_97.jpg"},{"id":"1DrRkusMB6zJxDRBv0-gNjKxTX456OKxF","title":"Edit_95.jpg"},{"id":"1DiDCVdl_ss3VX6a3JR7niPFt-APDMT2q","title":"Edit_94.jpg"},{"id":"1UBa6wu2v_22KH5G80CDjz9PDcwMzNPp3","title":"Edit_93.jpg"},{"id":"1ZSyMKNq9rztKskTuwkkId52B4cG-rb3z","title":"Edit_92.jpg"},{"id":"12sajgRTX78-pKrP1xKIYZ0h3C8Eew-ey","title":"Edit_91.jpg"},{"id":"1VP3vNM1PC6TzLHc3CSAA396D3qUcVeLP","title":"Edit_90.jpg"},{"id":"1bpbYQ_pHUAPrtAuwMnweV_uvMccXiQII","title":"Edit_88.jpg"},{"id":"1eyQOotJwzUPAzcWbUTiLxO_6S6f4dAUQ","title":"Edit_89.jpg"},{"id":"1ncHzxFl3GTRcIFYUf7vY4oKzYNdYIgBM","title":"Edit_87.jpg"},{"id":"1g2RgcnFYchr_12SunfaWvUPa-Ed8_MgV","title":"Edit_86.jpg"},{"id":"1ujw0coI0fI7lQ0ppu1fdFQNUXzKnZL7E","title":"Edit_85.jpg"},{"id":"1PNfZG3CfUifX2OeoduOGoLhVfJophtFN","title":"Edit_84.jpg"},{"id":"1Fo9eqdN8-yxW6XnIrhbBcfyQQsbNseLO","title":"Edit_83.jpg"},{"id":"1o0zhe9km0GJqs5OVw35tpqxj0Gw-bzAC","title":"Edit_82.jpg"},{"id":"1PN5UVXjOW1PhV1y_-cvQegguHliaKoPr","title":"Edit_81.jpg"},{"id":"1vVTkn_thEjbxCnlzIa9DHpSQeg3v6j41","title":"Edit_80.jpg"},{"id":"1l-7OsR1d9uAAtyR-2GDwhc3urtAygB9z","title":"Edit_79.jpg"},{"id":"1hHOuhK8U8BzhQeddoeT6w-PuRKQexNpB","title":"Edit_78.jpg"},{"id":"1OwHpjClxtFUlYGM-5gWdie8xQ2-L_Af1","title":"Edit_77.jpg"},{"id":"1KymT4FeB3_kBceFTpYz3HSIJp_0-tE02","title":"Edit_76.jpg"},{"id":"1YYjf5CxZUdShnp5QUJtlcfnLJKfZCiye","title":"Edit_75.jpg"},{"id":"1ElFmQNQjiaWfi0UTv3F72dU0YXne-TE2","title":"Edit_74.jpg"},{"id":"1iMIcQPn8ynu_3xWwVo9sQnG8K97vIdsq","title":"Edit_73.jpg"},{"id":"1TY00Tm0UDofdtEz2f_i8Z-9VfkBUKQcr","title":"Edit_72.jpg"},{"id":"1rsTq2F38PrvzV1u9YkoaxQODzypDZm5Z","title":"Edit_71.jpg"},{"id":"1YYZsw7A97TLLcwQKlwZHHCL6eGTx83mi","title":"Edit_70.jpg"},{"id":"1mv_3Gq54qWOeWA4Yv618nUJGEqIevgbI","title":"Edit_69.jpg"},{"id":"1VORxkrbm1tknlE6wxQt74QcFJT_RUAey","title":"Edit_67.jpg"},{"id":"14paMAVUbMLyUgczqhhRgiT2hcEhke3FS","title":"Edit_68.jpg"},{"id":"1iqyOMu_NQ3cJBLzdx_HewJuFcTYiXwYd","title":"Edit_66.jpg"},{"id":"1pgJsAR_hjLaaw7PFBlmF6lswgGf81eXS","title":"Edit_65.jpg"},{"id":"1kZxmuRc36ioW6ITvzTaeByP_OKJFAoYf","title":"Edit_64.jpg"},{"id":"124CQ3zSjWL0oJS-aroENkV74Z2YeYg-Z","title":"Edit_63.jpg"},{"id":"11EonlPJSvNz1jRn-U-udFDsFYZ2xqTm1","title":"Edit_62.jpg"},{"id":"1rAk63BYe1pWVhMjFtg0uQ4W55-5HfRT2","title":"Edit_61.jpg"},{"id":"1r4phkL2ZYcR2SqQvMrySrVhCmyrwyne1","title":"Edit_59.jpg"},{"id":"1ytm9yZY0apftr50LMxoC8TE18SK81cWS","title":"Edit_60.jpg"},{"id":"1BjYC3ZOT1Lcugt5NVb2fbrOceJ-N-OZ0","title":"Edit_58.jpg"},{"id":"1VjnzuCgRkWQJa5q1LjQ0qMLTPO4sxSlX","title":"Edit_56.jpg"},{"id":"1nXsFuNLAgB1Sly5qanwZA3noSu7l8ajA","title":"Edit_57.jpg"},{"id":"1oPZaGKzmqhxA5Grw83Zf0pHdKeXSFZ9J","title":"Edit_55.jpg"},{"id":"1zKS5Aw2vd5pByNrbzQPksRwhl-xq1NJt","title":"Edit_54.jpg"},{"id":"1kVCQx1oJr1m4UAVd5skJPjmgCTRLyLVq","title":"Edit_53.jpg"},{"id":"1TS5CjBl8oUS4M6tXV2-iVgPS-6MOdjYN","title":"Edit_52.jpg"},{"id":"1zGRvnQmBZF6qEZaUJKjWUAVEX71m6f5x","title":"Edit_51.jpg"},{"id":"1IdZSl7yTYj99Ii09Ww0WNARii0kAd-y_","title":"Edit_50.jpg"},{"id":"1ah9_JzVQWBrVyvymCcAUXL9IgNlV86Al","title":"Edit_49.jpg"},{"id":"1GUO0aUOTJ_SWpK71S1curxsBCjg867jv","title":"Edit_48.jpg"},{"id":"1biuSv4evY6uA5dp_nhRyGaGuzMXDZMLX","title":"Edit_47.jpg"}];
+  const contenidoGaleria = document.getElementById("galeriaFotosContenido");
+  const fotoActual = document.getElementById("galeriaFotoActual");
+  const urlFotoDrive = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
+
+  fotosGaleria.forEach((foto, indice) => {
+    const elemento = document.createElement("div");
+    elemento.className = `carousel-item${indice === 0 ? " active" : ""}`;
+
+    const imagen = document.createElement("img");
+    imagen.className = "d-block w-100 galeria-foto";
+    imagen.alt = `Confusión Masiva - Foto ${indice + 1}`;
+    imagen.loading = indice === 0 ? "eager" : "lazy";
+    imagen.decoding = "async";
+    if (indice === 0) {
+      imagen.src = urlFotoDrive(foto.id);
+    } else {
+      imagen.dataset.src = urlFotoDrive(foto.id);
+    }
+
+    elemento.appendChild(imagen);
+    contenidoGaleria.appendChild(elemento);
+  });
+
+  const carruselGaleria = document.getElementById("galeriaFotos");
+  carruselGaleria.addEventListener("slide.bs.carousel", event => {
+    const imagenSiguiente = event.relatedTarget.querySelector("img[data-src]");
+    if (imagenSiguiente) {
+      imagenSiguiente.src = imagenSiguiente.dataset.src;
+      delete imagenSiguiente.dataset.src;
+    }
+    fotoActual.textContent = event.to + 1;
+  });
 </script>
 
 

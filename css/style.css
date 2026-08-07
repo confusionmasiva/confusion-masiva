@@ -140,17 +140,42 @@ body {
   }
 }
 
-#reproductor {
+#galeria {
   color: #fff;
 }
 
-#reproductor h2 {
+#galeria h2 {
   color: #00ff66; 
   font-weight: bold;
 }
 
-#reproductor iframe {
+#galeria .carousel {
   box-shadow: 0 0 20px rgba(0, 255, 100, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+#galeria .galeria-foto {
+  height: min(70vh, 720px);
+  object-fit: contain;
+  background-color: #000;
+}
+
+#galeria .carousel-control-prev,
+#galeria .carousel-control-next {
+  width: 12%;
+}
+
+#galeria .galeria-contador {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  #galeria .galeria-foto {
+    height: 55vh;
+  }
 }
 
 
