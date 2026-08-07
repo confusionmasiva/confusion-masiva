@@ -22,6 +22,8 @@
   const checkoutForm = document.getElementById("checkoutForm");
   const pedidoDatos = document.getElementById("pedidoDatos");
   const checkoutAviso = document.getElementById("checkoutAviso");
+  const checkoutModalElement = document.getElementById("checkoutModal");
+  let scrollAntesDelCheckout = 0;
 
   if (!carrito.length) localStorage.removeItem("confusionMasivaCarrito");
 
@@ -120,15 +122,41 @@
     renderCarrito();
   });
 
-  document.getElementById("checkoutModal").addEventListener("show.bs.modal", () => {
+  function actualizarAlturaCheckout() {
+    if (!checkoutModalElement.classList.contains("show") && !document.body.classList.contains("checkout-abierto")) return;
+    const altura = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    checkoutModalElement.style.setProperty("--checkout-viewport-height", `${Math.round(altura)}px`);
+  }
+
+  function bloquearFondoCheckout() {
+    if (!window.matchMedia("(max-width: 767.98px)").matches) return;
+    scrollAntesDelCheckout = window.scrollY;
+    document.body.style.top = `-${scrollAntesDelCheckout}px`;
+    document.body.classList.add("checkout-abierto");
+    actualizarAlturaCheckout();
+  }
+
+  function desbloquearFondoCheckout() {
+    if (!document.body.classList.contains("checkout-abierto")) return;
+    document.body.classList.remove("checkout-abierto");
+    document.body.style.top = "";
+    checkoutModalElement.style.removeProperty("--checkout-viewport-height");
+    window.scrollTo(0, scrollAntesDelCheckout);
+  }
+
+  checkoutModalElement.addEventListener("show.bs.modal", () => {
+    bloquearFondoCheckout();
     const totales = calcularTotales();
     checkoutResumen.innerHTML = `<h3 class="h5 text-start">Resumen</h3>${carrito.map(item => `<p class="mb-1">${item.cantidad} × ${PRODUCTOS[item.producto].nombre} — ${item.talle}, ${item.colorPrenda}, estampa ${item.colorEstampa}</p>`).join("")}<p class="fw-bold mt-3">Total con comisión de Mercado Pago (8%): ${dinero(totales.total)}</p><p class="small mb-0">El costo de envío se coordina posteriormente.</p>`;
   });
 
+  checkoutModalElement.addEventListener("hidden.bs.modal", desbloquearFondoCheckout);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", actualizarAlturaCheckout);
+
   iniciarCompra.addEventListener("click", () => {
     const panel = document.getElementById("carritoPanel");
     const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(panel);
-    const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("checkoutModal"));
+    const modal = bootstrap.Modal.getOrCreateInstance(checkoutModalElement);
 
     if (panel.classList.contains("show")) {
       panel.addEventListener("hidden.bs.offcanvas", () => modal.show(), { once: true });
