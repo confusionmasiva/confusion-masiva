@@ -126,7 +126,16 @@
   });
 
   iniciarCompra.addEventListener("click", () => {
-    bootstrap.Offcanvas.getOrCreateInstance(document.getElementById("carritoPanel")).hide();
+    const panel = document.getElementById("carritoPanel");
+    const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(panel);
+    const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("checkoutModal"));
+
+    if (panel.classList.contains("show")) {
+      panel.addEventListener("hidden.bs.offcanvas", () => modal.show(), { once: true });
+      offcanvas.hide();
+    } else {
+      modal.show();
+    }
   });
 
   checkoutForm.addEventListener("submit", event => {
