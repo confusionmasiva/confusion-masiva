@@ -303,7 +303,37 @@ body {
   text-shadow: none;
 }
 
+#checkoutForm {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#checkoutModal .modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 767.98px) {
+  #checkoutModal .modal-content {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
+  #checkoutModal .modal-header,
+  #checkoutModal .modal-footer {
+    flex: 0 0 auto;
+  }
+
+  #checkoutModal .modal-body {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+
   #merch .row {
     flex-wrap: nowrap;
     overflow-x: auto;
